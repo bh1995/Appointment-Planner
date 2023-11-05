@@ -19,19 +19,19 @@ function App() {
   const addContact = (name, phoneNumber, email) => {
     // Create a new contact object and update the contacts array
     const newContact = { name, phoneNumber, email };
-    setContacts([...contacts, newContact]);
+    setContacts(contacts => [...contacts, newContact]);
   };
   // name, contact, date, and time
   const addAppointment = (name, contact, date, time) => {
     // Create a new contact object and update the contacts array
     const newAppointment = { name, contact, date, time };
-    setAppointments([...contacts, newAppointment]);
+    setAppointments(appointments => [...appointments, newAppointment]);
   };
 
   const router = createBrowserRouter(createRoutesFromElements(
     <Route path="/" element={ <Root/> }>
       <Route index element={ <Navigate to={ROUTES.CONTACTS} replace/> }/>
-      <Route path={ROUTES.CONTACTS} element={ <ContactsPage addContact={addContact} /> /* Add props to ContactsPage */ }/>
+      <Route path={ROUTES.CONTACTS} element={ <ContactsPage onAddContact={addContact} contacts={contacts} /> /* Add props to ContactsPage */ }/>
       <Route path={ROUTES.APPOINTMENTS} element={ <AppointmentsPage addAppointment={addAppointment} /> /* Add props to AppointmentsPage */ }/>
     </Route>
   ));
