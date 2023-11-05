@@ -1,28 +1,30 @@
-import './App.css';
+import React from "react";
+import { RouterProvider, createBrowserRouter, createRoutesFromElements, Route, Navigate } from "react-router-dom"
+import Root, { ROUTES } from "./components/root/Root";
+import { AppointmentsPage } from "./containers/appointmentsPage/AppointmentsPage";
+import { ContactsPage } from "./containers/contactsPage/ContactsPage";
 
 function App() {
+  /*
+  Define state variables for 
+  contacts and appointments 
+  */
+
+  /*
+  Implement functions to add data to
+  contacts and appointments
+  */
+
+  const router = createBrowserRouter(createRoutesFromElements(
+    <Route path="/" element={ <Root/> }>
+      <Route index element={ <Navigate to={ROUTES.CONTACTS} replace/> }/>
+      <Route path={ROUTES.CONTACTS} element={ <ContactsPage /> /* Add props to ContactsPage */ }/>
+      <Route path={ROUTES.APPOINTMENTS} element={ <AppointmentsPage /> /* Add props to AppointmentsPage */ }/>
+    </Route>
+  ));
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src="Octocat.png" className="App-logo" alt="logo" />
-        <p>
-          GitHub Codespaces <span className="heart">♥️</span> React
-        </p>
-        <p className="small">
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </p>
-      </header>
-    </div>
+    <RouterProvider router={router}/>
   );
 }
 
