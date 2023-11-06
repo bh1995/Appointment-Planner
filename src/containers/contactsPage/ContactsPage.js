@@ -35,6 +35,7 @@ export const ContactsPage = ({ contacts, onAddContact }) => {
     Add contact info and clear data
     if the contact name is not a duplicate
     */
+    console.log(contacts);
     if (!isDuplicate) {
       onAddContact(name, phone, email);
       // Optionally reset the form fields

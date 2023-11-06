@@ -1,14 +1,7 @@
 import React from "react";
 
-export const ContactForm = ({
-  name,
-  setName,
-  phone,
-  setPhone,
-  email,
-  setEmail,
-  handleSubmit
-}) => {
+export const ContactForm = ({ handleSubmit }) => {
+  
   return (
     <form onSubmit={handleSubmit}>
       <label htmlFor="name">Name:</label>
