@@ -24,10 +24,16 @@ export const AppointmentsPage = ({
     <div>
       <section>
         <h2>Add Appointment</h2>
+        <AppointmentForm
+          appointments={appointments}
+          contacts={contacts}
+          handleSubmit={onAddAppointment}
+        />
       </section>
       <hr />
       <section>
         <h2>Appointments</h2>
+        <TileList items={appointments} />
       </section>
     </div>
   );

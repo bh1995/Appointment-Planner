@@ -21,6 +21,13 @@ export const AppointmentForm = ({
 }) => {
 
   return (
-    <></>
+    <>
+    <form onSubmit={handleSubmit}>
+    {/* Input elements for the appointment data go here */}
+    <input type="text" name="title" required />
+    <input type="datetime-local" name="dateTime" required />
+    <button type="submit">Add Appointment</button>
+  </form>
+    </>
   );
 };
